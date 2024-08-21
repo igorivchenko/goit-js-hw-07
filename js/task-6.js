@@ -23,7 +23,7 @@ function createBoxes(amount) {
   if (amount > 100) {
     return;
   }
-
+  const docFragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i++) {
     const createBox = document.createElement('div');
     const size = 30 + i * 10;
@@ -31,8 +31,9 @@ function createBoxes(amount) {
     createBox.style.width = `${size}px`;
     createBox.style.height = `${size}px`;
     createBox.style.backgroundColor = getRandomHexColor();
-    listBoxesEl.append(createBox);
+    docFragment.append(createBox);
   }
+  listBoxesEl.append(docFragment);
 }
 
 function destroyBoxes() {
